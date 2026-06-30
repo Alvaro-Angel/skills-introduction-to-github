@@ -73,8 +73,8 @@ jobs:
         id: check-pr-title
         continue-on-error: true
         run: |
-          if echo "$PR_TITLE" | grep -Eiq 'Add my first file|Add PROFILE\.md'; then
-            echo "STEP_MESSAGE=Pull request title matches" >> "$GITHUB_OUTPUT"
+          if echo "$PR_TITLE" | grep -Eiq '^(Add my first file|Add PROFILE\.md)$'; then
+            echo "STEP_MESSAGE=Pull request title matches expected exercise title" >> "$GITHUB_OUTPUT"
           else
             echo "STEP_MESSAGE=Pull request title does not match expected title" >> "$GITHUB_OUTPUT"
             exit 1
